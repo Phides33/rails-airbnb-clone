@@ -1,8 +1,5 @@
 <h1><%= @booking.price %></h1>
 
-
-
-
 <% if @booking.check_out_on < Date.today + 10 %>
   <% if  @booking.rating.nil? %>
     <%= render "bookings/edit" %>

@@ -13,7 +13,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    #@rv = Rv.find(params[:rv_id])
     @rv = Rv.find(1)
     @days = (params[:booking][:check_out_on].to_date - params[:booking][:check_in_on].to_date).to_i
     @booking = Booking.new
