@@ -1,0 +1,16 @@
+<h1>All RVs available for bookings</h1>
+<% if @rvs.length == 0 %>
+  <p>Sorry, no RVs available<p>
+<% else @rvs.each do |rv| %>
+  <%= rv.name %>
+  <%= rv.kind %>
+  <%= rv.user %>
+  <%= rv.localisation %>
+  <%= rv.number_of_beds %>
+  <%= rv.number_of_guests %>
+  <%= rv.price_per_night %>
+  <%= rv.min_stay %>
+  <%= link_to "See availability", rv_path(rv), :class => "btn btn-primary" %>
+  <br>
+<% end %>
+<% end %>
