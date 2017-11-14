@@ -13,7 +13,7 @@ class Rv < ApplicationRecord
   validate :guests_inf_to_beds
 
   def guests_inf_to_beds
-    if number_of_guests > number_of_beds
+    if number_of_beds.present? && number_of_guests.present? && number_of_guests > number_of_beds
       errors.add(:number_of_guests, "can't be more than number of beds")
     end
   end

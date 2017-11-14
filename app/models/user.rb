@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true, length: { minimum: 1 }
   validates :last_name, presence: true, length: { minimum: 1 }
   validates :email, presence: true, uniqueness: true
-  validates_format_of :phone_number, :with => /\A\+?[\d\s{1}\/\(\)\-]{8,}\Z/, :on => :save, :message=>  "must be more than 7 digits"
+  validates_format_of :phone_number, :with => /\A\+?[\d\s{1}\/\(\)\-]{8,}\Z/, :on => :create, :message=>  "must be more than 7 digits"
   validates :date_of_birth, presence: true
   validate :validate_age
 
