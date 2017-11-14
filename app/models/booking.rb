@@ -4,7 +4,7 @@ class Booking < ApplicationRecord
   validates :price, presence: true
   validates :check_in_on, presence: true
   validates :check_out_on, presence: true
-  validates :status, presence: true, inclusion: { in: ["Pending", "Accepted"] }
+  validates :status, presence: true, inclusion: { in: ["Pending", "Accepted", "Cancelled"] }
   validates :rating, inclusion: { in: [0, 1, 2, 3, 4, 5], allow_nil: false }, numericality: { only_integer: true }
   validate :date_validation
   validate :date_is_past
