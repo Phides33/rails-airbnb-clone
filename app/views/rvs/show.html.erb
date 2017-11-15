@@ -1,10 +1,6 @@
 
  <div class="container text-center">
-  <% if @rv.photo? %>
-    <%= cl_image_tag @rv.photo.path, width: 500, height: 300, crop: :fill %>
-  <% else %>
-    <%= image_tag 'https://source.unsplash.com/FjtE9VKlKg4/500x300' %>
-  <% end %>
+   <%= image_tag 'https://source.unsplash.com/FjtE9VKlKg4/500x300' %>
   <h2><%= @rv.name %></h2>
     <p>Kind: <%= @rv.kind %></p>
     <p>Owner: <%= @rv.user.first_name %><%= @rv.user.last_name %></p>
