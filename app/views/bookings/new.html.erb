@@ -1,7 +1,13 @@
 <h1>New booking</h1>
 
 <%= simple_form_for @booking do |f| %>
-  <%= f.text_field :check_in_on, "data-provide" => "datepicker",  "data-date-format" => "dd/mm/yyyy"%>
+  <%= f.text_field :check_in_on, "data-provide" => "datepicker",  "data-date-format" => "dd/mm/yyyy" %>
   <%= f.text_field :check_out_on, "data-provide" => "datepicker", "data-date-format" => "dd/mm/yyyy"  %>
   <%= f.submit %>
 <% end %>
+
+
+<script>
+
+
+</script>
