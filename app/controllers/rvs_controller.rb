@@ -12,10 +12,10 @@ class RvsController < ApplicationController
   end
 
   def create
-    @rv = Rv.new
-    @rv = Rv.new(rv_params[:rv])
+    @rv = Rv.new(rv_params)
+    @rv.user = current_user
     if @rv.save
-      redirect_to user_rv_path(@rv)
+      redirect_to rv_path(@rv)
     else
       render :new
     end
