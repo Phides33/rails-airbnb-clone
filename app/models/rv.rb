@@ -2,7 +2,6 @@ class Rv < ApplicationRecord
   $RV_KIND = ["Standard", "Large", "Compact", "Truck camper"]
   $MAX_GUESTS = 8
   has_many :bookings
-  has_attachment :photo
   belongs_to :user
   validates :name, presence: true, uniqueness: true
   validates :localisation, presence: true

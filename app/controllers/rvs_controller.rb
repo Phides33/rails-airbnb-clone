@@ -28,6 +28,6 @@ class RvsController < ApplicationController
   private
 
   def rv_params
-    params.require(:rv).permit(:name, :localisation, :kind, :number_of_beds, :number_of_guests, :price_per_night, :min_stay, :photo)
+    params.require(:rv).permit(:name, :localisation, :kind, :number_of_beds, :number_of_guests, :price_per_night, :min_stay)
   end
 end
