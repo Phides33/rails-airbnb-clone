@@ -10,6 +10,7 @@
     <br>
     <%= f.text_field :date_of_birth, "data-provide" => "datepicker",  "data-date-format" => "dd/mm/yyyy" %>
     <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :phone_number, required: true, autofocus: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
   </div>

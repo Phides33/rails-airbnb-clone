@@ -6,4 +6,29 @@ class RvsController < ApplicationController
   def show
     @rv = Rv.find(params[:id])
   end
+
+  def new
+    @user = current_user
+    @rv = Rv.new
+  end
+
+  def create
+    @rv = Rv.new
+    @rv = Rv.new(rv_params[:rv])
+    if @rv.save
+      redirect_to user_rv_path(@rv)
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @rv = Rv.find(params[:id])
+  end
+
+  private
+
+  def rv_params
+    params.require(:rv).permit(:name, :localisation, :kind, :number_of_beds, :number_of_guests, :price_per_night, :min_stay)
+  end
 end
