@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @user = User.find(current_user.id)
-    @bookings = @user.bookings
+    @bookings = current_user.bookings
   end
 
   def show
@@ -9,11 +8,12 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @rv = Rv.find(params[:rv_id])
     @booking = Booking.new
   end
 
   def create
-    @rv = Rv.find(1)
+    @rv = Rv.find(params[:rv_id])
     @days = (params[:booking][:check_out_on].to_date - params[:booking][:check_in_on].to_date).to_i
     @booking = Booking.new
     if @days >= @rv.min_stay
