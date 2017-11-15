@@ -8,7 +8,6 @@ class RvsController < ApplicationController
   end
 
   def new
-    @user = current_user
     @rv = Rv.new
   end
 
