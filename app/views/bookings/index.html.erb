@@ -1,5 +1,10 @@
-<h1>All the bookings of user</h1>
+
+<h1 class="text-center">All the bookings</h1>
 
 <% @bookings.each do |booking| %>
-  <%= booking.price %>
+  <p><strong><%= booking.rv.name %></strong></p>
+  <p>From <%= booking.check_in_on %></p>
+  <p>To <%= booking.check_out_on %></p>
+  <p>Price <%= booking.price %>$</p>
+  <%= link_to "Show RV", rv_path(booking.rv)%>
 <% end %>
