@@ -2,10 +2,23 @@ class RvsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @rvs = Rv.all
+    @rvs = Rv.where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@rvs) do |rv, marker|
+      marker.lat rv.latitude
+      marker.lng rv.longitude
+      # marker.infowindow render_to_string(partial: "/rvs/map_box", locals: { rv: rv })
+    end
   end
 
   def show
     @rv = Rv.find(params[:id])
+
+    @hash = Gmaps4rails.build_markers(@rv) do |rv, marker|
+      marker.lat rv.latitude
+      marker.lng rv.longitude
+      # marker.infowindow render_to_string(partial: "/rvs/map_box", locals: { rv: rv })
+    end
   end
 
   def new
