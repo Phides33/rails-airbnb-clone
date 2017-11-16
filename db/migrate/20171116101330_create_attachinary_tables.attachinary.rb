@@ -1,7 +1,6 @@
 # This migration comes from attachinary (originally 20120612112526)
 class CreateAttachinaryTables < ActiveRecord::Migration[4.2]
   def change
-    drop_table :attachinary_files
     create_table :attachinary_files do |t|
       t.references :attachinariable, polymorphic: true
       t.string :scope
