@@ -42,8 +42,9 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.review = params[:booking][:review]
     @booking.rating = params[:booking][:rating]
+    @booking.status = params[:booking][:status]
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to myrvs_path
     else
        render :show
     end
@@ -52,7 +53,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:check_in_on, :check_out_on, :rating, :review)
+    params.require(:booking).permit(:check_in_on, :check_out_on, :rating, :review, :status)
   end
 
 end

@@ -6,5 +6,6 @@
   <p>From <%= booking.check_in_on %></p>
   <p>To <%= booking.check_out_on %></p>
   <p>Price <%= booking.price %>$</p>
+  <p>Status: <%= booking.status %></p>
   <%= link_to "Show RV", rv_path(booking.rv)%>
 <% end %>
