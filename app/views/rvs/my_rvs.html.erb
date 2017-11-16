@@ -1,7 +1,9 @@
 <h1>My RVs</h1>
 <% @my_rvs.each do |rv| %>
   <h3><%= rv.name %></h3>
-  <%= link_to "Details of this RV", rv_path(rv)%>
+  Details: <%= link_to "Show", rv_path(rv), class: "btn btn-primary" %>
+  <%= link_to "Edit", edit_rv_path(rv), class: "btn btn-primary" %>
+  <%= link_to "Remove", rv_path(rv), method: :delete, class: "btn btn-warning", data: { confirm: 'Are you sure?' } %>
   <% if rv.bookings.length != 0 %>
     <p>Bookings for this rv: </p>
     <% rv.bookings.each do |b| %>
