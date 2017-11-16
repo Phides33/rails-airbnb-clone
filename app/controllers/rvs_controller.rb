@@ -3,6 +3,7 @@ class RvsController < ApplicationController
   def index
     @rvs = Rv.all
   end
+
   def show
     @rv = Rv.find(params[:id])
   end
@@ -21,12 +22,36 @@ class RvsController < ApplicationController
     end
   end
 
+  def edit
+    @rv = Rv.find(params[:id])
+  end
+
+  def update
+    @rv = Rv.find(params[:id])
+    @rv.name = params[:rv][:name]
+    @rv.localisation = params[:rv][:localisation]
+    @rv.kind = params[:rv][:kind]
+    @rv.number_of_beds = params[:rv][:number_of_beds]
+    @rv.number_of_guests = params[:rv][:number_of_guests]
+    @rv.price_per_night = params[:rv][:price_per_night]
+    @rv.min_stay = params[:rv][:min_stay]
+    @rv.photo = params[:rv][:photo]
+    @rv.user = current_user
+    if @rv.save
+      redirect_to rv_path(@rv)
+    else
+      render :edit
+    end
+  end
+
   def my_rvs
     @my_rvs = current_user.rvs
   end
 
   def destroy
     @rv = Rv.find(params[:id])
+    @rv.destroy
+    redirect_to myrvs_path
   end
 
   private
