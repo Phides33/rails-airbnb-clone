@@ -47,7 +47,6 @@ class RvsController < ApplicationController
   def my_rvs
     @my_rvs = current_user.rvs
   end
-
   def destroy
     @rv = Rv.find(params[:id])
     @rv.destroy
