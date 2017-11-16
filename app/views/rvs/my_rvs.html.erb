@@ -6,7 +6,7 @@
   <%= link_to "Remove", rv_path(rv), method: :delete, class: "btn btn-warning", data: { confirm: 'Are you sure?' } %>
   <% if rv.bookings.length != 0 %>
     <p>Bookings for this rv: </p>
-    <% rv.bookings.each do |b| %>
+    <% rv.bookings.reverse_each do |b| %>
         <p><%= b.user.first_name %> <%= b.user.last_name %></p>
         <p><%= b.price %></p>
         <p><%= b.check_in_on %></p>
