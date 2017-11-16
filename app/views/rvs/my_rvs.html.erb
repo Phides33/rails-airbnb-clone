@@ -9,7 +9,17 @@
         <p><%= b.price %></p>
         <p><%= b.check_in_on %></p>
         <p><%= b.check_out_on %></p>
-
+        <% if (b.status == "Pending") %>
+        <%= simple_form_for [rv, b] do |t| %>
+          <%= t.hidden_field :status, :value => "Accepted" %>
+          <%= t.submit "Accept", class: "btn btn-success" %>
+        <% end %>
+        <%= simple_form_for [rv, b] do |t| %>
+          <%= t.hidden_field :status, :value => "Cancelled" %>
+          <%= t.submit "Cancel", class: "btn btn-danger" %>
+          <% end %>
+        <% end %>
+        <%= b.status %>
     <% end %>
   <% else %>
     <p>No bookings for this RV.</p>
