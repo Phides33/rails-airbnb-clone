@@ -12,6 +12,8 @@ class Rv < ApplicationRecord
   validates :price_per_night, presence: true
   validates :min_stay, presence: true, numericality: { only_integer: true, greater_than: 1 }
   validate :guests_inf_to_beds
+  geocoded_by :localisation
+  after_validation :geocode
 
   def guests_inf_to_beds
     if number_of_beds.present? && number_of_guests.present? && number_of_guests > number_of_beds
