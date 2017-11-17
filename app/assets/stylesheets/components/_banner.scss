@@ -1,0 +1,50 @@
+.header-banner-top {
+
+  .primary-wrapper {
+    margin: 0 auto;
+    max-width: 900px;
+    position: relative; // bring the text back on top
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+
+  .banner {
+
+    position: relative;
+    background-color: #222;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 70px);
+
+
+    //stretch banner image to fill .banner
+    .banner-image {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: url(https://source.unsplash.com/rHJAcozKZCg) center center;
+      background-size: cover;
+      opacity: 0.75;
+    }
+
+    .site-title {
+
+      letter-spacing: 2px;
+      font-size: 52px;
+      margin: 0 0 20px;
+
+      a { color: #fff; text-decoration: none; }
+
+    }
+
+    .site-tagline {
+      color: #ccc5b9;
+      letter-spacing: 1px;
+      font-size: 18px;
+      margin: 0 20%;
+      opacity: 1;
+    }
+  }
+}
+

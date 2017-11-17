@@ -1,6 +1,6 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to "MCRVs", root_path %>
+  <%= link_to "MCRVS", root_path, class: "navbar-wagon-link" %>
     <!--<%= image_tag "logo.png" %>-->
 
 
@@ -10,9 +10,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "My RVs", myrvs_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to  "My RVs", myrvs_path, class: "navbar-wagon-item navbar-wagon-link active-link" %>
+      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link active-link" %>
+      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link active-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
