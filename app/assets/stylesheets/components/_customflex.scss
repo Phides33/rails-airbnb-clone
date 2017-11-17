@@ -1,0 +1,22 @@
+.simple-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+}
+
+.simple-flex > * {
+  margin: 10px;
+}
+
+.infos {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid $box-gray;
+  box-shadow: 1px 1px 1px $box-gray;
+  border-radius: 3px;
+}
+
+.rvphoto {
+  margin: 10px;
+}
