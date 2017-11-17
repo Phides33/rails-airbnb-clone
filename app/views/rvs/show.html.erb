@@ -1,38 +1,55 @@
-
- <div class="container text-center">
-  <% if @rv.photo? %>
-    <%= cl_image_tag @rv.photo.path, width: 500, height: 300, crop: :fill %>
-  <% else %>
-    <%= image_tag 'https://source.unsplash.com/FjtE9VKlKg4/500x300' %>
-  <% end %>
-  <div id="map" style="width: 50%; height: 300px;" ></div>
-  <% content_for(:after_js) do %>
-    <script>
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
-    </script>
-
-  <% end %>
-  <h2><%= @rv.name %></h2>
-    <p>Kind: <%= @rv.kind %></p>
-    <p>Owner: <%= @rv.user.first_name %><%= @rv.user.last_name %></p>
-    <p>Localisation: <%= @rv.localisation %></p>
-    <p>Beds: <%= @rv.number_of_beds %></p>
-    <p>Number of guests: <%= @rv.number_of_guests %></p>
-    <p>Price per night: <%= @rv.price_per_night %></p
-    <p>Minimum stay: <%= @rv.min_stay %></p>
-
-<% if @rv.user_id != current_user %>
-  <%= link_to "Make a booking", new_rv_booking_path(@rv), class:"btn btn-primary" %>
-<% end %>
-<%= link_to "Back to all RVs", root_path, class:"btn btn-primary" %>
+ <div class="container">
+  <!-- Responsive display photo left and map right -->
+  <div class="row">
+    <!-- Display photo of RV if present, otherwise placeholder with unsplash -->
+    <div class="col-xs-12 col-md-8">
+      <div class="rv">
+        <% if @rv.photo? %>
+          <%= cl_image_tag @rv.photo.path, width: 800, height: 300, crop: :fill %>
+        <% else %>
+          <%= image_tag 'https://source.unsplash.com/FjtE9VKlKg4/800x300' %>
+        <% end %>
+      </div>
+    </div>
+    <!-- Display location of RV -->
+    <div class="col-xs-12 col-md-4">
+      <div class="rv">
+        <div id="map" style="width: 400; height: 300px;" ></div>
+        <% content_for(:after_js) do %>
+          <script>
+            var handler = Gmaps.build('Google');
+            handler.buildMap({ internal: { id: 'map' } }, function() {
+              markers = handler.addMarkers(<%= raw @hash.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+              if (markers.length == 0) {
+                handler.getMap().setZoom(2);
+              } else if (markers.length == 1) {
+                handler.getMap().setZoom(14);
+              }
+            });
+          </script>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- Responsive display infos on left and call to action / booking form on right -->
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <div class="infos">
+        <h2><%= @rv.name %></h2>
+        <p>Rent this cool rv from <%= @rv.user.first_name %><%= @rv.user.last_name %></p>
+        <p>This <%= @rv.kind.downcase %> recreational vehicle has <%= @rv.number_of_beds %> beds and can therefore comfortably accomodate up to <%= @rv.number_of_guests %> people</p>
+        <p>It is currently located at <%= @rv.localisation %></p>
+        <p>The minimum stay is <%= @rv.min_stay %> days</p>
+        <h4>Price per night: <%= @rv.price_per_night %>$</h4>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4">
+    <% if @rv.user_id != current_user %>
+      <%= link_to "Make a booking", new_rv_booking_path(@rv), class:"btn btn-primary" %>
+    <% end %>
+    <%= link_to "Back to all RVs", root_path, class:"btn btn-primary" %>
+    </div>
+  </div>
  </div>

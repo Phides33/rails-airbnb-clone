@@ -6,8 +6,9 @@ class Booking < ApplicationRecord
   validates :check_out_on, presence: true
   validates :status, presence: true, inclusion: { in: ["Pending", "Accepted", "Cancelled"] }
   validates :rating, inclusion: { in: [ 1, 2, 3, 4, 5], allow_nil: true }
-  validate :date_validation
-  validate :date_is_past
+  # commented below in order to seed past bookings
+  # validate :date_validation
+  # validate :date_is_past
 
 
   def date_validation
@@ -22,5 +23,3 @@ class Booking < ApplicationRecord
     end
   end
 end
-
-
