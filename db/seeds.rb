@@ -13,7 +13,7 @@ user1 = User.new(first_name: "John", last_name: "Durand", date_of_birth: "10/11/
 user1.save!
 user2 = User.new(first_name: "JJ", last_name: "Cale", date_of_birth: "10/11/1992", email: "jj@gmail.com", password: "123456", phone_number: "+3355628745")
 user2.save!
-user3 = User.new(first_name: "Peter", last_name: "Pan", date_of_birth: "25/03/1875", email: "pp@snail", password: "123456", phone_number: "+4455628745")
+user3 = User.new(first_name: "Peter", last_name: "Pan", date_of_birth: "25/03/1875", email: "pp@gmail.com", password: "123456", phone_number: "+4455628745")
 user3.save!
 
 rv1 = Rv.new(user_id: user1.id, name: "Vintage woody", localisation: "Urrugne", kind: "Compact", number_of_beds: 2, number_of_guests: 2, price_per_night: 10, min_stay: 2)

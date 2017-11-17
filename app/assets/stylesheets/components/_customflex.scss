@@ -1,22 +1,31 @@
-.simple-flex {
+.vertical-flex {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 300px;
-}
-
-.simple-flex > * {
-  margin: 10px;
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .infos {
   margin: 10px;
   padding: 10px;
+  height: 300px;
   border: 1px solid $box-gray;
   box-shadow: 1px 1px 1px $box-gray;
   border-radius: 3px;
 }
 
-.rvphoto {
-  margin: 10px;
+.infos h2 {
+  margin-top: 0px;
+}
+.infos h4 {
+  text-align: right;
+  color: $blue;
+  font-size: 20px;
+}
+
+.rv {
+  padding: 10px;
 }

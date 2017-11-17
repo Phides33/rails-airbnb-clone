@@ -5,9 +5,9 @@
     <div class="col-xs-12 col-md-8">
       <div class="rv">
         <% if @rv.photo? %>
-          <%= cl_image_tag @rv.photo.path, width: 800, height: 300, crop: :fill %>
+          <%= cl_image_tag @rv.photo.path, width:730, height: 300 %>
         <% else %>
-          <%= image_tag 'https://source.unsplash.com/FjtE9VKlKg4/800x300' %>
+          <%= image_tag 'https://source.unsplash.com/FjtE9VKlKg4/730x300' %>
         <% end %>
       </div>
     </div>
@@ -40,16 +40,20 @@
         <h2><%= @rv.name %></h2>
         <p>Rent this cool rv from <%= @rv.user.first_name %><%= @rv.user.last_name %></p>
         <p>This <%= @rv.kind.downcase %> recreational vehicle has <%= @rv.number_of_beds %> beds and can therefore comfortably accomodate up to <%= @rv.number_of_guests %> people</p>
-        <p>It is currently located at <%= @rv.localisation %></p>
+        <p>It is currently located in <%= @rv.localisation %></p>
         <p>The minimum stay is <%= @rv.min_stay %> days</p>
         <h4>Price per night: <%= @rv.price_per_night %>$</h4>
       </div>
     </div>
     <div class="col-xs-12 col-md-4">
-    <% if @rv.user_id != current_user %>
-      <%= link_to "Make a booking", new_rv_booking_path(@rv), class:"btn btn-primary" %>
-    <% end %>
-    <%= link_to "Back to all RVs", root_path, class:"btn btn-primary" %>
+      <div class="infos">
+        <div class="vertical-flex">
+          <% if @rv.user_id != current_user %>
+            <%= link_to "Make a booking", new_rv_booking_path(@rv), class:"btn btn-primary" %>
+          <% end %>
+          <%= link_to "Back to all RVs", root_path, class:"btn btn-primary" %>
+        </div>
+      </div>
     </div>
   </div>
  </div>
