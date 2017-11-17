@@ -1,11 +1,21 @@
-<%= simple_form_for @rv do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :attachinary %>
-  <%= f.input :kind %>
-  <%= f.input :localisation %>
-  <%= f.input :number_of_beds %>
-  <%= f.input :number_of_guests %>
-  <%= f.input :price_per_night %>
-  <%= f.input :min_stay %>
-  <%= f.submit %>
-<% end %>
+<div class="container text-center" style="margin-top: 20px;">
+  <h1> Create a new RV</h1>
+  <div class="row text-left">
+    <div class = "col-xs-12 col-sm-6 col-sm-offset-3">
+      <div style="background-color: rgb(230, 230, 230); border-raius: 3px; box-shadow: 1px 1px 12px #AAAAAA; padding: 15px;">
+        <%= simple_form_for @rv do |f| %>
+        <%= f.input :name %>
+        <%= f.input :photo, as: :attachinary %>
+        <%= f.input :kind %>
+        <%= f.input :localisation %>
+        <%= f.input :number_of_beds %>
+        <%= f.input :number_of_guests %>
+        <%= f.input :price_per_night %>
+        <%= f.input :min_stay %>
+        <%= f.submit %>
+      <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
