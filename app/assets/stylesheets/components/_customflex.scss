@@ -8,6 +8,30 @@
   padding-bottom: 20px;
 }
 
+.horiz-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+#list-reviews {
+  height: 50px;
+}
+
+.reviews {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid $box-gray;
+  box-shadow: 1px 1px 1px $box-gray;
+  border-radius: 3px;
+}
+
+.reviews h2 {
+  margin-top: 0px;
+  font-size: 24px;
+}
+
 .infos {
   margin: 10px;
   padding: 10px;
@@ -26,6 +50,8 @@
   font-size: 20px;
 }
 
-.rv {
+.rv1 {
+  height: 320px;
   padding: 10px;
+  margin-bottom: 0px;
 }
