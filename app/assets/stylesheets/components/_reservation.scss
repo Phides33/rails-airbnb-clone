@@ -1,0 +1,33 @@
+.reservation{
+  justify-content: space-between;
+}
+
+.reservation {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+}
+.reservation:last-child {
+  border-bottom: none;
+}
+/*.reservation .status-buttons{
+  flex: 1 0 auto;
+}*/
+.reservation img{
+  width:44px;
+  border-radius: 50%;
+}
+/*.reservation-name{
+  margin-left:20px;
+  padding-top: 10px;
+}
+
+.reservation-date{
+  margin-left:20px;
+  padding-top:10px;
+}
+.reservation-price{
+  margin-left:20px;
+  padding-top:10px;
+}*/

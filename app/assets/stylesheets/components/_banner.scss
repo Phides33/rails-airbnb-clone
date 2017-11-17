@@ -16,6 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     height: calc(100vh - 70px);
 
 
@@ -48,3 +49,20 @@
   }
 }
 
+
+.btn-medium {
+  color: #fffcf2;
+  border: 0.5px solid #ccc5b9;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: 400;
+  background-color: #222;
+  opacity: 0.8;
+  z-index: 4;
+}
+
+.btn-medium:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #ccc5b9;
+}

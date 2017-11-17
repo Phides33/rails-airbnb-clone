@@ -1,13 +1,22 @@
 .card {
-  height: 175px;
+  height: 250px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
-  color: white;
-  position: relative;
-  margin-bottom: 30px;
-
+  color: #fffcf2;
+  position: relative;;
+  margin-top: 30px;
+  box-shadow: 1px 1px 12px #555;
+  transition:0.18s linear 0s;
 }
+
+.card:hover {
+    z-index:999;
+    transform:scale(1.1);
+    box-shadow:0px 0px 10px rgba(0,0,0,0.3);
+    background:#E93D42;
+}
+
 .card-user {
   position: absolute;
   right: 10px;
@@ -27,13 +36,22 @@
   bottom: 10px;
   left: 10px;
 }
+
 .card-description h2 {
   font-size: 24px;
 }
 .card-description p {
   font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
+  opacity: 0.9;
+  font-weight: light;
+  text-align: left;
+}
+
+.card-price {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 18px;
 }
 .card-link {
   position: absolute;

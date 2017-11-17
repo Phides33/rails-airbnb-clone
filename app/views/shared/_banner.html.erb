@@ -7,8 +7,12 @@
           <div class="primary-wrapper">
 
             <h1 class="site-title"><a href="#">MCRVS</a></h1>
-            <div class="site-tagline"> Explore. Discover. Rent a motorhome that fit your adventure.</div>
+            <div class="site-tagline"> Explore. Discover. Rent a recreational vehicle that fits your adventure.</div>
           </div>
+          <%= link_to "Search your RV", root_path( anchor: "map"),  id: "go-down", :class => "btn btn-medium"%>
+          <br>
+          <% if user_signed_in? %>
           <%= link_to "Put a RV up for rental", new_rv_path, :class => "btn btn-medium" %>
+          <% end %>
         </div>
   </div>
