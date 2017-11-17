@@ -1,7 +1,7 @@
 <h1>My RVs</h1>
 <div style="margin-top:40px;">
   <% @my_rvs.each do |rv| %>
-    <div class="inline" style="display:inline;">
+    <div class="inline">
       <h3><%= link_to rv.name, rv_path(rv) %></h3>
       <%= link_to "Edit", edit_rv_path(rv), class: "btn btn-primary"%>
       <%= link_to "Remove", rv_path(rv), method: :delete, class: "btn btn-warning", data: { confirm: 'Are you sure?' } %>
