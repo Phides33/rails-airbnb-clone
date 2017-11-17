@@ -49,9 +49,10 @@
       <div class="infos" id="newbook">
         <div class="vertical-flex">
           <% if @rv.user_id != current_user %>
-            <%= link_to "Make a booking", new_rv_booking_path(@rv), class:"btn btn-primary" %>
+            <%= render 'bookings/new', booking: @booking, rv: @rv %>
+            <!-- <%= link_to "Make a booking", new_rv_booking_path(@rv), class:"btn btn-primary" %> -->
           <% end %>
-          <%= link_to "Back to all RVs", root_path, class:"btn btn-primary" %>
+          <!-- <%= link_to "Back to all RVs", root_path, class:"btn btn-primary" %> -->
         </div>
       </div>
     </div>

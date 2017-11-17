@@ -1,0 +1,7 @@
+<%= simple_form_for @booking, url: rv_bookings_path(@rv), method: :post do |f| %>
+  <p>From</p>
+  <p><%= f.text_field :check_in_on, "data-provide" => "datepicker",  "data-date-format" => "dd/mm/yyyy" %></p>
+  <p>To</p>
+  <p><%= f.text_field :check_out_on, "data-provide" => "datepicker", "data-date-format" => "dd/mm/yyyy"  %></p>
+  <%= f.submit %>
+<% end %>
