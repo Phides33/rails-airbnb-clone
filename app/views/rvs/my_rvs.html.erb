@@ -1,49 +1,72 @@
-<h1>My RVs</h1>
-<div style="margin-top:40px;">
-  <% @my_rvs.each do |rv| %>
-    <div class="inline">
-      <h3><%= link_to rv.name, rv_path(rv) %></h3>
-      <%= link_to "Edit", edit_rv_path(rv), class: "btn btn-primary"%>
-      <%= link_to "Remove", rv_path(rv), method: :delete, class: "btn btn-warning", data: { confirm: 'Are you sure?' } %>
-    </div>
-    <% if rv.bookings.length != 0 %>
-      <p>Bookings for this rv: </p>
-      <% rv.bookings.reverse_each do |b| %>
-        <div class="row">
-          <div class="col-xs-12 col-sm-10">
-            <div class="reservation">
-              <img class="avatar-large" src="http://via.placeholder.com/40x40">
-              <div class="reservation-name">
-                <p><%= b.user.first_name %> <%= b.user.last_name %></p>
-              </div>
-              <div class="reservation-date">
-                <p><%= b.check_in_on %> <%= b.check_out_on %></p>
-              </div>
-              <div class="reservation-price">
-                <p><%= b.price %></p>
-              </div>
-              <div class="status">
-                <%= b.status %>
+<div class="container">
+  <h1>My RVs</h1>
 
-              <% if (b.status == "Pending") %>
-                <div class="status-buttons inline">
-                  <%= simple_form_for [rv, b] do |t| %>
-                  <%= t.hidden_field :status, :value => "Accepted" %>
-                  <%= t.submit "Accept", class: "btn btn-success" %>
-                <% end %>
-                <%= simple_form_for [rv, b] do |t| %>
-                  <%= t.hidden_field :status, :value => "Cancelled" %>
-                  <%= t.submit "Cancel", class: "btn btn-danger" %>
-                  <% end %>
+    <% @my_rvs.each do |rv| %>
+    <div class= "rv">
+
+      <div class="inline" >
+
+          <h3><%= link_to rv.name, rv_path(rv) %></h3>
+
+          <div class="placeholder"></div>
+
+
+          <h3><%= link_to "Edit", edit_rv_path(rv)%></h3>
+
+          <div class="placeholder"></div>
+
+            <h3><%= link_to "Remove", rv_path(rv), method: :delete, data: { confirm: 'Are you sure?' } %></h3>
+      </div>
+
+
+
+
+      <% if rv.bookings.length != 0 %>
+        <p>Bookings for this rv: </p>
+        <% rv.bookings.reverse_each do |b| %>
+          <div class="row">
+            <div class="col-xs-12 col-sm-10">
+              <div class="reservation">
+                <img class="avatar-large" src="http://via.placeholder.com/40x40">
+                <div class="reservation-name">
+                  <p><%= b.user.first_name %> <%= b.user.last_name %></p>
                 </div>
-              <% end %>
+                <div class="reservation-date">
+                  <p><%= b.check_in_on %> <%= b.check_out_on %></p>
+                </div>
+                <div class="reservation-price">
+                  <p><%= b.price %></p>
+                </div>
+                <% if (b.status == "Pending") %>
+                  <div class="status-buttons inline">
+                    <%= simple_form_for [rv, b] do |t| %>
+                    <%= t.hidden_field :status, :value => "Accepted" %>
+                    <%= t.submit "Accept", class: "btn btn-success" %>
+
+                  <% end %>
+                  <div class="placeholder"></div>
+                  <%= simple_form_for [rv, b] do |t| %>
+                    <%= t.hidden_field :status, :value => "Cancelled" %>
+                    <%= t.submit "Cancel", class: "btn btn-danger" %>
+                    <% end %>
+                  </div>
+                  <% else %>
+                    <div class="status">
+                    <%= b.status %>
+                    </div>
+                <% end %>
+
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
+
+      <% else %>
+        <p>No bookings for this RV.</p>
+
       <% end %>
-    <% else %>
-      <p>No bookings for this RV.</p>
+
+    </div>
     <% end %>
-  <% end %>
+
 </div>
