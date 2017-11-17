@@ -13,7 +13,7 @@ class RvsController < ApplicationController
 
   def show
     @rv = Rv.find(params[:id])
-    
+    @booking = Booking.new
     @hash = Gmaps4rails.build_markers(@rv) do |rv, marker|
       marker.lat rv.latitude
       marker.lng rv.longitude
