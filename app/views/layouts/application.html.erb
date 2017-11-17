@@ -11,7 +11,9 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
+    <% if current_page?(root_path) %>
+    <%= render 'shared/banner' %>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <div class="container">
