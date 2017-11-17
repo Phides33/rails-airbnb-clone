@@ -1,9 +1,9 @@
  <div class="container">
   <!-- Responsive display photo left and map right -->
-  <div class="row">
+  <div class="row" style="margin-top: 20px;">
     <!-- Display photo of RV if present, otherwise placeholder with unsplash -->
     <div class="col-xs-12 col-md-8">
-      <div class="rv">
+      <div class="rv1">
         <% if @rv.photo? %>
           <%= cl_image_tag @rv.photo.path, width:730, height: 300 %>
         <% else %>
@@ -13,7 +13,7 @@
     </div>
     <!-- Display location of RV -->
     <div class="col-xs-12 col-md-4">
-      <div class="rv">
+      <div class="rv1">
         <div id="map" style="width: 400; height: 300px;" ></div>
         <% content_for(:after_js) do %>
           <script>
@@ -46,7 +46,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-md-4">
-      <div class="infos">
+      <div class="infos" id="newbook">
         <div class="vertical-flex">
           <% if @rv.user_id != current_user %>
             <%= link_to "Make a booking", new_rv_booking_path(@rv), class:"btn btn-primary" %>
@@ -56,4 +56,14 @@
       </div>
     </div>
   </div>
- </div>
+  <div class="reviews">
+    <h2>Reviews</h2>
+      <% @rv.bookings.each do |b| %>
+        <div class="row" id="list-reviews">
+          <div class='col-md-2'><%= b.user.photo %></div>
+          <div class="col-md-1"><%= "*" * b.rating %></div>
+          <div class="col-md-9"><%= b.review %></div>
+        </div>
+      <% end %>
+  </div>
+</div>

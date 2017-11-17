@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :rvs, dependent: :destroy
   has_many :bookings
+  has_attachment :photo
   validates :first_name, presence: true, length: { minimum: 1 }
   validates :last_name, presence: true, length: { minimum: 1 }
   validates :email, presence: true, uniqueness: true
