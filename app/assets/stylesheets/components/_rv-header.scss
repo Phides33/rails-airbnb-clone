@@ -1,5 +1,15 @@
 .inline{
   display: flex;
   align-items: center;
-  background-color: red;
+
+}
+.placeholder{
+  margin: 0 10px;
+}
+
+.rv{
+  background-color: rgb(215,215,215);
+  box-shadow: 1px 1px 3px #888888;
+  margin-top: 40px;
+  border-radius:4px
 }
